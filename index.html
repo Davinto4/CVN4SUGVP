@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chukwu Victoria Nnenna for SUG Vice President</title>
+    
+    <!-- Google Fonts: Poppins for headings, Lato for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate on Scroll (AOS) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Easy Theme Management */
+        :root {
+            --primary-color: #4a148c; /* Deep Purple */
+            --secondary-color: #ffd700; /* Gold */
+            --light-color: #f4f4f4;
+            --dark-color: #1a0336;
+            --glass-bg: rgba(26, 3, 54, 0.4);
+            --text-color: #e0e0e0;
+        }
+
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Particle.js Background Container */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-image: url('');
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+        /* General Container Styling */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: var(--light-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--secondary-color), #ffec8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 30px var(--secondary-color), 0 0 50px var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 45px var(--secondary-color), 0 0 70px var(--primary-color);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid var(--secondary-color);
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--light-color);
+            font-weight: 400;
+            margin-top: 1rem;
+        }
+        
+        /* Typing Animation Keyframes */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--secondary-color); }
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Declaration Section */
+        #declaration .declaration-text {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        #declaration .signature {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Pillars Section */
+        #pillars .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .pillar-card .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--secondary-color), #ffec8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover .icon {
+            transform: rotateY(360deg);
+        }
+
+        .pillar-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--light-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Call to Action Section */
+        #cta {
+            text-align: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            background: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-btn:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        /* Floating Buttons */
+        .floating-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
+        }
+
+        #whatsapp-btn {
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+        }
+        
+        #music-btn {
+            bottom: 100px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color); }
+        }
+        
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+                white-space: normal;
+                animation: none; /* Disable typing on mobile for simplicity */
+                border-right: none;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero {
+                height: auto;
+                padding: 8rem 0 4rem 0;
+            }
+            section {
+                padding: 3rem 0;
+            }
+            #whatsapp-btn { bottom: 20px; right: 20px; }
+            #music-btn { bottom: 90px; right: 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Particle.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="https://files.catbox.moe/f36puv.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2348085152649" target="_blank" id="whatsapp-btn" class="floating-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Floating Music Control Button -->
+    <div id="music-btn" class="floating-btn">
+        <i id="music-icon" class="fas fa-volume-up"></i>
+    </div>
+
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content container">
+            <img src="https://files.catbox.moe/kp425q.jpg" alt="Chukwu Victoria Nnenna" class="hero-img" data-aos="zoom-in" data-aos-duration="1000">
+            <h1 class="candidate-name">Chukwu Victoria Nnenna</h1>
+            <p data-aos="fade-up" data-aos-delay="500">Running for SUG Vice President</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Declaration Section -->
+        <section id="declaration">
+            <div class="container">
+                <div class="glass-card" data-aos="fade-up" data-aos-duration="1000">
+                    <h2>DECLARATION OF INTEREST</h2>
+                    <div class="declaration-text">
+                        <p>Dear EBSU students,</p>
+                        <p>My name is <strong>Chukwu Victoria Nnenna</strong>, a proud student of this great institution, and with humility and a heart to serve, I’m officially declaring my interest to run for the office of the <strong>SUG Vice President</strong>.</p>
+                        <p>This decision comes from my genuine passion to bridge the gap between students and management, amplify the voices that often go unheard—especially our freshers and the girl child—and to work hand in hand with other leaders to ensure that every student feels seen, heard, and valued.</p>
+                        <p>Leadership is not about a title. It’s about service, representation, and making impact where it truly matters. I believe in a student union that listens, acts, and stands for all.</p>
+                        <p>As we prepare for this journey, I ask for your support, your voice, and your trust. Together, we can build a stronger, more inclusive student community.</p>
+                        <p class="signature">I’m Chukwu Victoria Nnenna, and I’m ready to serve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Pillars Section -->
+        <section id="pillars">
+            <div class="container">
+                <h2>My Core Values</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card glass-card" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="icon"><i class="fas fa-people-carry"></i></div>
+                        <h3>Service With Purpose</h3>
+                        <p>Leadership is service. My goal is to work tirelessly for the student body with clear, purposeful objectives.</p>
+                    </div>
+                    <div class="pillar-card glass-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                        <h3>Voice To The Voiceless</h3>
+                        <p>I will champion the causes of all students, especially freshers and the girl child, ensuring no one is left behind.</p>
+                    </div>
+                    <div class="pillar-card glass-card" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="icon"><i class="fas fa-handshake-angle"></i></div>
+                        <h3>Action Over Promises</h3>
+                        <p>I believe in tangible results. My focus will be on implementing practical solutions, not just making empty promises.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section id="cta">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000">
+                 <h2>Join the Movement!</h2>
+                 <p>Your support is the key to building a better, stronger, and more inclusive EBSU. Let's make a difference, together.</p>
+                 <a href="https://wa.me/2348085152649" target="_blank" class="cta-btn">#VictoriaForVP - Support Now!</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Campaign for Chukwu Victoria Nnenna for SUG VP. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Animate on Scroll (AOS) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true, // Whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+        });
+        
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#ffd700"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              },
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#ffd700",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 4,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "repulse"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 400,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
+          },
+          "retina_detect": true
+        });
+        
+        // Background Music Control
+        const music = document.getElementById('background-music');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        // Function to toggle music play/pause
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove('fa-volume-up');
+                musicIcon.classList.add('fa-volume-mute');
+            } else {
+                music.play();
+                musicIcon.classList.remove('fa-volume-mute');
+                musicIcon.classList.add('fa-volume-up');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        musicBtn.addEventListener('click', toggleMusic);
+
+        // Modern browsers require user interaction to play audio.
+        // This will attempt to play music on the first click anywhere on the page.
+        function playMusicOnFirstInteraction() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.classList.remove('fa-volume-mute');
+                    musicIcon.classList.add('fa-volume-up');
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    console.log("Autoplay prevented. User needs to click the music button.");
+                });
+            }
+            // Remove this listener after the first click
+            document.body.removeEventListener('click', playMusicOnFirstInteraction);
+        }
+
+        document.body.addEventListener('click', playMusicOnFirstInteraction);
+
+    </script>
+</body>
+</html>
